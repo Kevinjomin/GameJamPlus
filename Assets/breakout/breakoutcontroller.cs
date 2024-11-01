@@ -8,14 +8,14 @@ public class breakoutcontroller : MonoBehaviour
     public float speed = 1;
 
     void Start(){
-        rb.AddForce(new Vector2(Random.Range(-3, 3), -3), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(Random.Range(-1.5f, 1.5f), -1), ForceMode2D.Impulse);
     }
 
     void FixedUpdate()
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
         if(rb.velocity.magnitude < speed){
-            rb.velocity += rb.velocity;
+            rb.velocity += rb.velocity * 0.5f;
         }
     }
 
@@ -26,6 +26,7 @@ public class breakoutcontroller : MonoBehaviour
 
         if(collision.gameObject.tag == "breakoutdead"){
             Debug.Log("lose");
+            MinigameManager.Instance.TriggerGameLose();
             Destroy(gameObject);
         }
     }

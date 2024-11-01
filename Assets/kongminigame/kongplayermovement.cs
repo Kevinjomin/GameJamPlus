@@ -45,11 +45,13 @@ public class kongplayermovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.name == "finishline"){
             Debug.Log("win");
+            MinigameManager.Instance.TriggerGameWin();
         }
     }
 
     void die(){
         died = true;
         Debug.Log("fail");
+        MinigameManager.Instance.TriggerGameLose();
     }
 }

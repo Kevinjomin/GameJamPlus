@@ -8,6 +8,7 @@ public class breakoutcheckbrick : MonoBehaviour
     {
         if(transform.childCount <= 0){
             Debug.Log("Win");
+            MinigameManager.Instance.TriggerGameWin();
             gameObject.SetActive(false);
         }
     }
