@@ -7,6 +7,8 @@ public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager Instance;
 
+    public int section = 1;
+
     public List<Monitor> monitors = new List<Monitor>();
 
     private Monitor currentMonitor;
@@ -91,7 +93,6 @@ public class MinigameManager : MonoBehaviour
         {
             Lose();
         }
-
         PickNewMonitor();
     }
 
