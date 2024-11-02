@@ -7,18 +7,15 @@ public class Monitor : MonoBehaviour
     public GameObject screen;
     public string sceneName;
 
-    public Material screenOnMaterial;
-    public Material screenOffMaterial;
-
-    public void TurnOn()
+    public void TurnOn(Material material)
     {
-        screen.GetComponent<Renderer>().material = screenOnMaterial;
+        screen.GetComponent<Renderer>().material = material;
         SceneLoader.Instance.LoadMinigameScene(sceneName);
     }
 
-    public void TurnOff()
+    public void TurnOff(Material material)
     {
-        screen.GetComponent<Renderer>().material = screenOffMaterial;
+        screen.GetComponent<Renderer>().material = material;
         SceneLoader.Instance.UnloadMinigameScene(sceneName);
     }
 

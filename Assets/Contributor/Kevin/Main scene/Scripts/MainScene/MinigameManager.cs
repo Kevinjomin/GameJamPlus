@@ -9,8 +9,13 @@ public class MinigameManager : MonoBehaviour
 
     public List<Monitor> monitors = new List<Monitor>();
 
-    public Monitor currentMonitor;
-    public int currentMonitorIndex;
+    private Monitor currentMonitor;
+    private int currentMonitorIndex;
+
+    public Material screenOnMaterial;
+    public Material screenOffMaterial;
+
+    public List<Material> screenAnomalyMaterials = new List<Material>();
 
     public int totalLose;
 
@@ -27,12 +32,23 @@ public class MinigameManager : MonoBehaviour
 
     public void PickNewMonitor()
     {
-        if (currentMonitor != null) currentMonitor.TurnOff();
+        if (currentMonitor != null) currentMonitor.TurnOff(screenOffMaterial);
 
         currentMonitorIndex = GetNewMonitorIndex();
         currentMonitor = monitors[currentMonitorIndex];
 
-        currentMonitor.TurnOn();
+        currentMonitor.TurnOn(GetScreenMaterial());
+    }
+
+    private Material GetScreenMaterial()
+    {
+        float random = Random.Range(0, 100);
+        if(random < (5f * totalLose))
+        {
+            int randomIndex = Random.Range(0, screenAnomalyMaterials.Count);
+            return screenAnomalyMaterials[randomIndex];
+        }
+        return screenOnMaterial;
     }
 
     private int GetNewMonitorIndex()

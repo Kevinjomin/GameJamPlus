@@ -654,7 +654,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: df217990abac8ba4f9accd36d0274142, type: 2}
+  sharedProfile: {fileID: 11400000, guid: dd6c570c3c2bc004f898153edd935e3e, type: 2}
 --- !u!4 &832575519
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &954101812
 GameObject:
@@ -787,7 +787,7 @@ MonoBehaviour:
   - {fileID: 8941621127956963466, guid: 4ea2cf4123404ea46aacf320bec5ba14, type: 3}
   - {fileID: 8941621127956963466, guid: fdd23946cf742154c9613b73664bf55d, type: 3}
   - {fileID: 8941621127956963466, guid: 0d9bba32258c4b44099989c6e951add0, type: 3}
-  spawnCooldown: 1.5
+  spawnCooldown: 1
   spawnRange: 5
   bulletPool: {fileID: 506410766}
 --- !u!1 &1003035018
@@ -1389,10 +1389,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 300, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1832,6 +1832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618009730270305042, guid: 12c0b46bedd020048ad75ea497b78796,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6779063691259237996, guid: 12c0b46bedd020048ad75ea497b78796,
         type: 3}
