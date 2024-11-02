@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7399792974628599683}
   m_Layer: 0
   m_Name: FlappyGround
-  m_TagString: Untagged
+  m_TagString: Pipes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.4339623, g: 0.23905134, b: 0, a: 1}
+  m_Color: {r: 0.4867924, g: 0.31178543, b: 0.09827694, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

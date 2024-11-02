@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlappyBirdJumper : MonoBehaviour
 {
-    private float rotationSpeed = 10f;
+    private float rotationSpeed = 7f;
     [SerializeField] private float jumpForce = 4f;
     private Rigidbody2D rb2d;
 
