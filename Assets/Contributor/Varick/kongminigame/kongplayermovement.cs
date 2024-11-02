@@ -59,7 +59,6 @@ public class kongplayermovement : MonoBehaviour
             MinigameManager.Instance.TriggerGameWin();
         }
         if(collision.gameObject.name == "kongstair"){
-            Debug.Log("sss");
             instair = true;
         }
     }
