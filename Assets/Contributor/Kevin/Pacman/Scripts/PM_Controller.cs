@@ -30,18 +30,22 @@ public class PM_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             currentDirection = Direction.up;
+            transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             currentDirection = Direction.down;
+            transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             currentDirection = Direction.left;
+            transform.rotation = Quaternion.Euler(0f, 0f, 180f);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             currentDirection = Direction.right;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
     }
@@ -69,16 +73,18 @@ public class PM_Controller : MonoBehaviour
         rb.velocity = movement * moveSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PM_EnemyPatrol>())
         {
             MinigameManager.Instance.TriggerGameLose();
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+        if (collision.gameObject.GetComponent<PM_EnemyChase>())
+        {
+            MinigameManager.Instance.TriggerGameLose();
+        }
+
         if (collision.gameObject.CompareTag("Point"))
         {
             PM_Manager.Instance.AddScore(1);
