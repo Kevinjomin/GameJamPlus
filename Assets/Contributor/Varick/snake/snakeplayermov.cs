@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class snakeplayermov : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Sprite headsnake, body;
+    public GameObject ef, ef1;
     void Start()
     {
-        InvokeRepeating("move", 0.1f, 0.5f);
+        InvokeRepeating("move", 3, 0.5f);
+        if(MinigameManager.Instance.section > 1){
+            GetComponent<SpriteRenderer>().sprite = headsnake;
+            ef.SetActive(true);
+            foreach(snakebodycontroller a in bodyconlist){
+                a.gameObject.GetComponent<SpriteRenderer>().sprite = body;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -15,6 +25,8 @@ public class snakeplayermov : MonoBehaviour
     public Vector3 dir = new Vector3(1, 0, 0), dircheck = new Vector3(1, 0, 0);
 
     public List<snakebodycontroller> bodyconlist = new List<snakebodycontroller>();
+
+    public TMP_Text scoretxt;
 
     void FixedUpdate()
     {
@@ -56,6 +68,13 @@ public class snakeplayermov : MonoBehaviour
         int a = bodyconlist.Count;
         a--;
         snakebodycontroller b = bodyconlist[a].addbody();
+        scoretxt.text = "Score : " + bodyconlist.Count + " / 15";
+        if(bodyconlist.Count >= 15){
+            MinigameManager.Instance.TriggerGameWin();
+        }
         bodyconlist.Add(b);
+        if(MinigameManager.Instance.section > 1){
+            b.gameObject.GetComponent<SpriteRenderer>().sprite = body;
+        }
     }
 }
