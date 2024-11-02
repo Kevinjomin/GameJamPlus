@@ -17,6 +17,7 @@ public class FlappyBirdGameManager : MonoBehaviour
         if (collision.gameObject.tag == "Pipes")
         {
             Debug.Log("KETABRAK!");
+            MinigameManager.Instance.TriggerGameLose();
         }
     }
 
