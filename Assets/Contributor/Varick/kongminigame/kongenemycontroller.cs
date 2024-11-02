@@ -16,6 +16,7 @@ public class kongenemycontroller : MonoBehaviour
         InvokeRepeating("spawnbarrel", 0.1f, 3f);
     }
     void spawnbarrel(){
-        Instantiate(barrel, transform.position + new Vector3(2, 0 ,0), Quaternion.Euler(0,0,30));
+        Instantiate(barrel, transform).transform.position = transform.position + new Vector3(3, -1f ,0);
+        
     }
 }
