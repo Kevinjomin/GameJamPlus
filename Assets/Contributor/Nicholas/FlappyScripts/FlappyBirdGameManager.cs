@@ -7,6 +7,7 @@ public class FlappyBirdGameManager : MonoBehaviour
 {
     private int score = 0;
     public Text scoreText;
+    private int objectives = 15;
 
     void Start()
     {
@@ -27,6 +28,10 @@ public class FlappyBirdGameManager : MonoBehaviour
         {
             score++;
             UpdateScoreText();
+            if (score >= objectives)
+            {
+                MinigameManager.Instance.TriggerGameWin();
+            }
         }
     }
 
