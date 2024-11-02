@@ -12,6 +12,9 @@ public class PM_EnemyChase : MonoBehaviour
 
     private Vector2 previousPosition;
 
+    [SerializeField] bool canMoveThroughWall;
+    float moveSpeed;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,6 +22,13 @@ public class PM_EnemyChase : MonoBehaviour
         agent.updateUpAxis = false;
 
         animator = GetComponent<Animator>();
+
+        moveSpeed = agent.speed / 2f;
+
+        if (canMoveThroughWall)
+        {
+            agent.enabled = false;
+        }
     }
 
     private void FixedUpdate()
@@ -29,7 +39,14 @@ public class PM_EnemyChase : MonoBehaviour
 
     private void Move()
     {
-        agent.SetDestination(target.position);
+        if (canMoveThroughWall)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            agent.SetDestination(target.position);
+        }
     }
 
     private void SetAnimation()

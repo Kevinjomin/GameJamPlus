@@ -16468,6 +16468,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 707896189}
+    - target: {fileID: 4435846681719753532, guid: f7026882552141142a7f7014ba554093,
+        type: 3}
+      propertyPath: canMoveThroughWall
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9081378431163068285, guid: f7026882552141142a7f7014ba554093,
         type: 3}
       propertyPath: m_Speed
