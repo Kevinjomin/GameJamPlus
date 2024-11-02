@@ -26,7 +26,7 @@ public class FlappyBirdPipeSpawner : MonoBehaviour
     private void SpawnPipe()
     {
         Vector3 spawnPosition = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange), 0);
-        GameObject pipe = Instantiate(pipes, spawnPosition, Quaternion.identity);
+        GameObject pipe = Instantiate(pipes, spawnPosition, Quaternion.identity, transform);
 
         Destroy(pipe, 8f);
     }
