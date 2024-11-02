@@ -55,9 +55,10 @@ public class SS_Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<SS_Enemy>())
+        if (collision.gameObject.GetComponent<SS_Enemy>() || collision.gameObject.GetComponent<SS_Bullet>())
         {
             MinigameManager.Instance.TriggerGameLose();
         }
+
     }
 }

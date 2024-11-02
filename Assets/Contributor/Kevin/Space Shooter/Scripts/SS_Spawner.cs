@@ -8,6 +8,8 @@ public class SS_Spawner : MonoBehaviour
     public float spawnCooldown;
     public float spawnRange; //this is the spawn range vertically
 
+    [SerializeField] private SS_BulletPool bulletPool;
+
     private void Start()
     {
         StartCoroutine(Spawn());
@@ -16,7 +18,8 @@ public class SS_Spawner : MonoBehaviour
     private IEnumerator Spawn()
     {
         int random = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[random], SetPosition(), Quaternion.identity, transform);
+        var enemy = Instantiate(enemyPrefabs[random], SetPosition(), Quaternion.identity, transform);
+        enemy.bulletPool = bulletPool;
 
         yield return new WaitForSeconds(spawnCooldown);
 

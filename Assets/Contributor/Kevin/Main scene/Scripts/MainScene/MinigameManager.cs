@@ -12,7 +12,7 @@ public class MinigameManager : MonoBehaviour
     public Monitor currentMonitor;
     public int currentMonitorIndex;
 
-    public int score;
+    public int totalLose;
 
     private void Awake()
     {
@@ -50,15 +50,42 @@ public class MinigameManager : MonoBehaviour
         return availableIndex[randomIndex];
     }
 
+    private void RemoveMonitorFromList(Monitor monitorToRemove)
+    {
+        monitors.Remove(monitorToRemove);
+    }
+
     public void TriggerGameWin()
     {
-        score++;
-        PickNewMonitor();
+        RemoveMonitorFromList(currentMonitor);
+        if(monitors.Count <= 0)
+        {
+            Win();
+        }
+        else
+        {
+            PickNewMonitor();
+        }
     }
 
     public void TriggerGameLose()
     {
-        score--;
+        totalLose++;
+        if(totalLose >= 10)
+        {
+            Lose();
+        }
+
         PickNewMonitor();
+    }
+
+    private void Win()
+    {
+        Debug.Log("Game win");
+    }
+
+    private void Lose()
+    {
+        Debug.Log("Game lost");
     }
 }

@@ -19,8 +19,6 @@ public class SS_Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<SS_Controller>()) return;
-
         if (collision.GetComponent<SS_Enemy>())
         {
             collision.GetComponent<SS_Enemy>().Die();
