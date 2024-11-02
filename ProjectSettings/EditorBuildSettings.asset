@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Contributor/Varick/breakout/breakoutgame.unity
     guid: ddc48ec83c2d27d499db4a1735ed53fe
   - enabled: 1
+    path: Assets/Contributor/Varick/platformer/platformer.unity
+    guid: 234c44280b2bae94b9845ec11daa1b15
+  - enabled: 1
+    path: Assets/Contributor/Varick/snake/snake.unity
+    guid: c357b5da55405a94bb465040af2f4b06
+  - enabled: 1
+    path: Assets/Contributor/Varick/waterbasketball/waterbasketball.unity
+    guid: c5f68a59ee1d96548bc01562f92b8d9a
+  - enabled: 1
     path: Assets/Contributor/Kevin/FlappyBirdTemp.unity
     guid: bb4467906857a674ba59c39c61048a8c
   m_configObjects: {}
