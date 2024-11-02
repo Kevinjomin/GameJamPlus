@@ -14,13 +14,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMinigameScene(string sceneName)
     {
-        Debug.Log($"Loading scene {sceneName}");
+        //Debug.Log($"Loading scene {sceneName}");
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
     }
 
     public void UnloadMinigameScene(string sceneName)
     {
-        Debug.Log($"Unloading scene {sceneName}");
+        //Debug.Log($"Unloading scene {sceneName}");
         SceneManager.UnloadSceneAsync(sceneName);
     }
 }

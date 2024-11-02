@@ -7,12 +7,19 @@ public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager Instance;
 
+    public int section = 1;
+
     public List<Monitor> monitors = new List<Monitor>();
 
-    public Monitor currentMonitor;
-    public int currentMonitorIndex;
+    private Monitor currentMonitor;
+    private int currentMonitorIndex;
 
-    public int score;
+    public Material screenOnMaterial;
+    public Material screenOffMaterial;
+
+    public List<Material> screenAnomalyMaterials = new List<Material>();
+
+    public int totalLose;
 
     private void Awake()
     {
@@ -27,12 +34,23 @@ public class MinigameManager : MonoBehaviour
 
     public void PickNewMonitor()
     {
-        if (currentMonitor != null) currentMonitor.TurnOff();
+        if (currentMonitor != null) currentMonitor.TurnOff(screenOffMaterial);
 
         currentMonitorIndex = GetNewMonitorIndex();
         currentMonitor = monitors[currentMonitorIndex];
 
-        currentMonitor.TurnOn();
+        currentMonitor.TurnOn(GetScreenMaterial());
+    }
+
+    private Material GetScreenMaterial()
+    {
+        float random = Random.Range(0, 100);
+        if(random < (5f * totalLose))
+        {
+            int randomIndex = Random.Range(0, screenAnomalyMaterials.Count);
+            return screenAnomalyMaterials[randomIndex];
+        }
+        return screenOnMaterial;
     }
 
     private int GetNewMonitorIndex()
@@ -50,15 +68,41 @@ public class MinigameManager : MonoBehaviour
         return availableIndex[randomIndex];
     }
 
+    private void RemoveMonitorFromList(Monitor monitorToRemove)
+    {
+        monitors.Remove(monitorToRemove);
+    }
+
     public void TriggerGameWin()
     {
-        score++;
-        PickNewMonitor();
+        RemoveMonitorFromList(currentMonitor);
+        if(monitors.Count <= 0)
+        {
+            Win();
+        }
+        else
+        {
+            PickNewMonitor();
+        }
     }
 
     public void TriggerGameLose()
     {
-        score--;
+        totalLose++;
+        if(totalLose >= 10)
+        {
+            Lose();
+        }
         PickNewMonitor();
+    }
+
+    private void Win()
+    {
+        Debug.Log("Game win");
+    }
+
+    private void Lose()
+    {
+        Debug.Log("Game lost");
     }
 }
