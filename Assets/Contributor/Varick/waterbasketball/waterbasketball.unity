@@ -632,6 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoretxt: {fileID: 1014917258}
   timertxt: {fileID: 1369474222}
+  scores: {fileID: 8300000, guid: a0d8e88a6b2deee49941d0cd69e3dc1b, type: 3}
 --- !u!1 &864210032
 GameObject:
   m_ObjectHideFlags: 0
@@ -10897,6 +10898,7 @@ MonoBehaviour:
   rblist: []
   action: 100
   power: 18
+  clip: {fileID: 8300000, guid: 2b926b5a43d0dac43a759e7eec573544, type: 3}
 --- !u!4 &1124918683
 Transform:
   m_ObjectHideFlags: 0
@@ -10962,6 +10964,7 @@ MonoBehaviour:
   rblist: []
   action: 97
   power: 18
+  clip: {fileID: 8300000, guid: 2b926b5a43d0dac43a759e7eec573544, type: 3}
 --- !u!61 &1343750376
 BoxCollider2D:
   m_ObjectHideFlags: 0

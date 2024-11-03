@@ -8,6 +8,7 @@ public class FlappyBirdGameManager : MonoBehaviour
     private int score = 0;
     public Text scoreText;
     private int objectives = 15;
+    public AudioClip birdjump;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class FlappyBirdGameManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Point")
         {
+            SoundManager.Instance.PlaySFXFromMonitor(birdjump);
             score++;
             UpdateScoreText();
             if (score >= objectives)

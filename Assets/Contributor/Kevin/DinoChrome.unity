@@ -844,6 +844,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  dinojump: {fileID: 8300000, guid: 0c7c3d4584c65f145a401f39e14361e0, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

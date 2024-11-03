@@ -10,6 +10,7 @@ public class goalwaterbasket : MonoBehaviour
     bool won = false;
 
     public TMP_Text timertxt;
+    public AudioClip scores;
 
     void Start(){
         StartCoroutine(timer());
@@ -17,6 +18,7 @@ public class goalwaterbasket : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.tag == "waterbasketball"){
+            SoundManager.Instance.PlaySFXFromMonitor(scores);
             score++;
             scoretxt.text = "Score: " + score.ToString() + " / 30";
             if(score > 30 && !won){

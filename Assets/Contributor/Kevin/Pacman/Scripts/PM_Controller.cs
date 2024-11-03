@@ -7,6 +7,7 @@ public class PM_Controller : MonoBehaviour
     Rigidbody2D rb;
 
     public float moveSpeed = 5f;
+    public AudioClip clip;
 
     public enum Direction
     {
@@ -16,6 +17,7 @@ public class PM_Controller : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlaySFXFromMonitor(clip);
         rb = GetComponent<Rigidbody2D>();
     }
 
