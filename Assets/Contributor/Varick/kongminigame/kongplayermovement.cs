@@ -38,8 +38,7 @@ public class kongplayermovement : MonoBehaviour
             }
             
             if(Input.GetButton("Jump") && grounded){
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                SoundManager.Instance.PlaySFXFromMonitor(audijump);
+                jump();
             }   
         }else{
             rb.velocity = new Vector2(0,0);
@@ -56,6 +55,11 @@ public class kongplayermovement : MonoBehaviour
         }
     }
 
+    void jump(){
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        SoundManager.Instance.PlaySFXFromMonitor(audijump);
+    }
+
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "kongbarrel"){
             die();
@@ -65,10 +69,12 @@ public class kongplayermovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.name == "finishline"){
             Debug.Log("win");
-            if(MinigameManager.Instance.section == 2){
-                StartCoroutine(waitwin());
-            }else{
-                MinigameManager.Instance.TriggerGameWin();
+            if(MinigameManager.Instance!=null){
+                if(MinigameManager.Instance.section == 2){
+                    StartCoroutine(waitwin());
+                }else{
+                    MinigameManager.Instance.TriggerGameWin();
+                }
             }
         }
         if(collision.gameObject.name == "kongstair"){

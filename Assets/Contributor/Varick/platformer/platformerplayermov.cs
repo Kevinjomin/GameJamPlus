@@ -16,6 +16,8 @@ public class platformerplayermov : MonoBehaviour
     public Sprite flagsprite;
 
     public AudioClip audijump;
+    
+    bool died = false;
 
     void FixedUpdate()
     {
@@ -82,7 +84,10 @@ public class platformerplayermov : MonoBehaviour
     }
 
     void die(){
-        Debug.Log("lose");
-        MinigameManager.Instance.TriggerGameLose();
+        if(!died){
+            Debug.Log("lose");
+            MinigameManager.Instance.TriggerGameLose();
+            died = true;
+        }
     }
 }
