@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class MinigameManager : MonoBehaviour
 {
@@ -28,9 +29,13 @@ public class MinigameManager : MonoBehaviour
 
     [SerializeField] GameEvent onSectionOneEnd;
     [SerializeField] GameEvent onSectionTwoStart;
+    [SerializeField] GameEvent onGameWin;
 
     [SerializeField] AudioClip sectionTwoAmbience;
     [SerializeField] AudioClip subsectionBGM;
+    [SerializeField] AudioClip staticSFX;
+
+    [SerializeField] PlayableDirector winCutscene;
 
     private void Awake()
     {
@@ -120,6 +125,7 @@ public class MinigameManager : MonoBehaviour
         currentMonitorIndex = GetNewMonitorIndex();
         currentMonitor = monitors[currentMonitorIndex];
 
+        SoundManager.Instance.PlaySFXFromMonitor(staticSFX);
         currentMonitor.TurnOn(GetScreenMaterial());
     }
 
@@ -202,10 +208,24 @@ public class MinigameManager : MonoBehaviour
     private void Win()
     {
         Debug.Log("Game win");
+        onGameWin.TriggerEvent();
+
+        SoundManager.Instance.StopBGM();
+        winCutscene.Play();
+        winCutscene.stopped += OnWinCutsceneEnd; //call when cutscene ends
+
+        sectionOneObject.SetActive(true);
+        sectionTwoObject.SetActive(false);
+    }
+
+    private void OnWinCutsceneEnd(PlayableDirector director)
+    {
+        SceneManager.LoadSceneAsync("Menu");
     }
 
     private void Lose()
     {
         Debug.Log("Game lost");
+        SceneManager.LoadSceneAsync("Menu");
     }
 }
