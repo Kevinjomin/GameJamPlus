@@ -20,13 +20,13 @@ public class PM_Manager : MonoBehaviour
 
     private void Start()
     {
-        goal = pelletsContainer.transform.childCount;
+        goal = (int)pelletsContainer.transform.childCount / 2;
         InitializeUI();
     }
 
     private void InitializeUI()
     {
-        scoreText.text = $"Score : {score.ToString()}";
+        scoreText.text = $"Score : {score.ToString()} / {goal.ToString()}";
     }
 
     public void AddScore(int _score)
