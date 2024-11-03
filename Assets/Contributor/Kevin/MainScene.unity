@@ -1496,7 +1496,7 @@ PrefabInstance:
     - target: {fileID: 2411238024194003041, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
       propertyPath: m_Name
-      value: Monitor
+      value: Monitor snake
       objectReference: {fileID: 0}
     - target: {fileID: 5427837701869363678, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
@@ -1551,7 +1551,7 @@ PrefabInstance:
     - target: {fileID: 6088962349491595414, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
       propertyPath: sceneName
-      value: 
+      value: snake
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1579,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &550723829
 Transform:
   m_ObjectHideFlags: 0
@@ -2316,9 +2316,11 @@ MonoBehaviour:
   - DinoChrome
   - Pacman
   - konggame
+  - snake
   - breakoutgame
   - FlappyBirdTemp
   - waterbasketball
+  - platformer
   monitors:
   - {fileID: 9138704197201237724}
   - {fileID: 1800914045}
@@ -2327,6 +2329,8 @@ MonoBehaviour:
   - {fileID: 1510413212}
   - {fileID: 1298208047}
   - {fileID: 1515353700}
+  - {fileID: 1909751310}
+  - {fileID: 1963475631}
   currentMonitor: {fileID: 3411047242831311727}
   screenOnMaterial: {fileID: 2100000, guid: 8ecad23d7eb17d44d976feb4a780c831, type: 2}
   screenOffMaterial: {fileID: 2100000, guid: 17c20f54f5577814c9c11ed80245f331, type: 2}
@@ -2512,7 +2516,7 @@ PrefabInstance:
     - target: {fileID: 2411238024194003041, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
       propertyPath: m_Name
-      value: Monitor
+      value: Monitor platformer
       objectReference: {fileID: 0}
     - target: {fileID: 5427837701869363678, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
@@ -2567,7 +2571,7 @@ PrefabInstance:
     - target: {fileID: 6088962349491595414, guid: ce84afec052e77d4d80e8184bad302eb,
         type: 3}
       propertyPath: sceneName
-      value: 
+      value: platformer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3221,7 +3225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1481870589
 Transform:
   m_ObjectHideFlags: 0
@@ -3952,6 +3956,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 501573740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1909751310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6088962349491595414, guid: ce84afec052e77d4d80e8184bad302eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 501573740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b616ca85b1d2a44afa676488b411b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1963475631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6088962349491595414, guid: ce84afec052e77d4d80e8184bad302eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1258152428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b616ca85b1d2a44afa676488b411b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980139220
 GameObject:
   m_ObjectHideFlags: 0
