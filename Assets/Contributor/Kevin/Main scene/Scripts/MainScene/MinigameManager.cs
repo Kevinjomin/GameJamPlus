@@ -37,6 +37,8 @@ public class MinigameManager : MonoBehaviour
 
     [SerializeField] PlayableDirector winCutscene;
 
+    public GameObject loseCanvas;
+
     private void Awake()
     {
         Instance = this;
@@ -228,6 +230,14 @@ public class MinigameManager : MonoBehaviour
     private void Lose()
     {
         Debug.Log("Game lost");
+        Cursor.lockState = CursorLockMode.None;
+        loseCanvas.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync("Menu");
     }
 }
