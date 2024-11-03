@@ -29,6 +29,9 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameEvent onSectionOneEnd;
     [SerializeField] GameEvent onSectionTwoStart;
 
+    [SerializeField] AudioClip sectionTwoAmbience;
+    [SerializeField] AudioClip subsectionBGM;
+
     private void Awake()
     {
         Instance = this;
@@ -82,6 +85,8 @@ public class MinigameManager : MonoBehaviour
     {
         currentMonitor.TurnOff(screenOffMaterial);
         currentMonitor.TurnOn(screenOnMaterial, "SubSection");
+
+        SoundManager.Instance.PlayBGM(subsectionBGM);
     }
 
     public void TriggerSectionTwo()
@@ -102,9 +107,10 @@ public class MinigameManager : MonoBehaviour
         section = 2;
         sectionOneObject.SetActive(false);
         sectionTwoObject.SetActive(true);
+        SoundManager.Instance.PlayBGM(sectionTwoAmbience);
 
         currentMonitor = null;
-        Invoke("PickNewMonitor", 3f);
+        Invoke("PickNewMonitor", 5f);
     }
 
     public void PickNewMonitor()

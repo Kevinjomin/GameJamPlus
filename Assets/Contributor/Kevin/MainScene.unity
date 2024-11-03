@@ -253,7 +253,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1731,6 +1731,8 @@ MonoBehaviour:
   totalLose: 0
   onSectionOneEnd: {fileID: 11400000, guid: 652244e6bdac441459ca3a1c34b7447f, type: 2}
   onSectionTwoStart: {fileID: 11400000, guid: 569b79f8a09a1fa4c9f06a04bb160050, type: 2}
+  sectionTwoAmbience: {fileID: 8300000, guid: 9bb4a80c441dc0b4cb358f44eed1e0dc, type: 3}
+  subsectionBGM: {fileID: 8300000, guid: f1aae33644976d34eac9980e31e1fcbd, type: 3}
 --- !u!4 &964859899
 Transform:
   m_ObjectHideFlags: 0
@@ -1982,7 +1984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1274867618
 MonoBehaviour:
   m_ObjectHideFlags: 0

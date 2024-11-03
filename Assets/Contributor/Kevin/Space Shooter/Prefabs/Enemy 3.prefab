@@ -179,6 +179,7 @@ MonoBehaviour:
   bulletSpeed: 1
   shootCooldown: 3
   currentCooldown: 0
+  deathSFX: {fileID: 8300000, guid: 6b443d91cb6898947abf0a3e8369a01a, type: 3}
 --- !u!1 &1690774576038784363
 GameObject:
   m_ObjectHideFlags: 0
