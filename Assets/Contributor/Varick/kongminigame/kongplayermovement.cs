@@ -13,6 +13,12 @@ public class kongplayermovement : MonoBehaviour
 
     public Transform spritetransform;
 
+    public GameObject kongjumpscare;
+
+    void Start(){
+        //StartCoroutine(waitwin());
+    }
+
     void FixedUpdate(){
         if(!died){
             movX = Input.GetAxisRaw("Horizontal");
@@ -56,7 +62,11 @@ public class kongplayermovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.name == "finishline"){
             Debug.Log("win");
-            MinigameManager.Instance.TriggerGameWin();
+            if(MinigameManager.Instance.section == 2){
+                StartCoroutine(waitwin());
+            }else{
+                MinigameManager.Instance.TriggerGameWin();
+            }
         }
         if(collision.gameObject.name == "kongstair"){
             instair = true;
@@ -73,5 +83,15 @@ public class kongplayermovement : MonoBehaviour
         died = true;
         Debug.Log("fail");
         MinigameManager.Instance.TriggerGameLose();
+    }
+
+    IEnumerator waitwin(){
+        kongjumpscare.SetActive(true);
+        for(int i = 0; i < 20; i++){
+            kongjumpscare.transform.localScale += new Vector3(1,1,1);
+            kongjumpscare.transform.position = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f) - ((float)i / 19 * 5),0);
+            yield return new WaitForSeconds(0.02f);
+        }
+        MinigameManager.Instance.TriggerGameWin();
     }
 }

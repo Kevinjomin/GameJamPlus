@@ -8,6 +8,10 @@ public class breakoutcontroller : MonoBehaviour
     public float speed = 1;
 
     void Start(){
+        Invoke("startwait", 3);
+    }
+
+    void startwait(){
         rb.AddForce(new Vector2(Random.Range(-1.5f, 1.5f), -1), ForceMode2D.Impulse);
     }
 
