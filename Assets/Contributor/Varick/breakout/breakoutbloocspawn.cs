@@ -15,7 +15,7 @@ public class breakoutbloocspawn : MonoBehaviour
     public void spawnblood(){
         for(int i = 0; i < Random.Range(4, 5); i++){
             Transform a = Instantiate(bloodobject, transform).transform;
-            a.position = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
+            a.position += new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
             a.localScale = new Vector3(Random.Range(4, 5), Random.Range(4, 5), 0);
         }
     }
