@@ -12,6 +12,7 @@ public class FirstPersonCamera : MonoBehaviour
     {
         playerCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
