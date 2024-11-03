@@ -372,7 +372,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: e55d9e6c045f13a489d0be2f7224be0f, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -749,7 +749,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &829371570
 Animator:
@@ -840,7 +840,7 @@ MonoBehaviour:
   holdJumpStrength: 18
   holdJumpDuration: 0.3
   groundCheck: {fileID: 566460116}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.4
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
