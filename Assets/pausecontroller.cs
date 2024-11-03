@@ -42,6 +42,7 @@ public class pausecontroller : MonoBehaviour
         }else{
             childobject.SetActive(true);
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
     }
