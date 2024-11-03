@@ -11,7 +11,7 @@ public class snakeplayermov : MonoBehaviour
     void Start()
     {
         scoretxt.text = "Score : " + bodyconlist.Count + " / 15";
-        InvokeRepeating("move", 3, 0.5f);
+        InvokeRepeating("move", 3, 0.25f);
         if(MinigameManager.Instance.section > 1){
             GetComponent<SpriteRenderer>().sprite = headsnake;
             ef.SetActive(true);
@@ -28,6 +28,8 @@ public class snakeplayermov : MonoBehaviour
     public List<snakebodycontroller> bodyconlist = new List<snakebodycontroller>();
 
     public TMP_Text scoretxt;
+
+    public AudioClip adio;
 
     void FixedUpdate()
     {
@@ -57,6 +59,7 @@ public class snakeplayermov : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.tag == "snakefood"){
             Destroy(collision.gameObject);
+            SoundManager.Instance.PlaySFXFromMonitor(adio);
             addbody();
         }
     }
@@ -70,7 +73,7 @@ public class snakeplayermov : MonoBehaviour
         a--;
         snakebodycontroller b = bodyconlist[a].addbody();
         bodyconlist.Add(b);
-        scoretxt.text = "Score : " + bodyconlist.Count + " / 15";
+        scoretxt.text = "Score : " + bodyconlist.Count + " / 20";
         if(bodyconlist.Count >= 15){
             MinigameManager.Instance.TriggerGameWin();
         }
