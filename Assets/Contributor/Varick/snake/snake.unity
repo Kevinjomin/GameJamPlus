@@ -22342,7 +22342,7 @@ MonoBehaviour:
   - {fileID: 374144900}
   - {fileID: 1085651726937139826}
   scoretxt: {fileID: 159010210}
-  adio: {fileID: 0}
+  adio: {fileID: 8300000, guid: 18e82e0eff90bee4c8c8c8a20a5ab75e, type: 3}
   lastpos: {x: 0, y: 0, z: 0}
 --- !u!4 &95444981413208226
 Transform:
