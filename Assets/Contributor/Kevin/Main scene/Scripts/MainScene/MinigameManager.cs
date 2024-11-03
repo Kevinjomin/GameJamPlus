@@ -109,6 +109,8 @@ public class MinigameManager : MonoBehaviour
 
     private void StartSectionTwo()
     {
+        SceneManager.UnloadSceneAsync("SubSection");
+
         section = 2;
         sectionOneObject.SetActive(false);
         sectionTwoObject.SetActive(true);
