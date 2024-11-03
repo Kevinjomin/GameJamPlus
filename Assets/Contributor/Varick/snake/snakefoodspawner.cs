@@ -10,7 +10,7 @@ public class snakefoodspawner : MonoBehaviour
     {
         if(transform.childCount <= 0){
             Transform a = Instantiate(food, transform).transform;
-            a.position = new Vector3(Random.Range(-8, 8) * 0.5f, Random.Range(-8, 8) * 0.5f, 0);
+            a.position += new Vector3(Random.Range(-6, 6) * 0.5f, Random.Range(-6, 6) * 0.5f, 0);
             a.gameObject.GetComponent<SpriteRenderer>().sprite = humansprite;
         }
     }

@@ -10,6 +10,7 @@ public class snakeplayermov : MonoBehaviour
     public GameObject ef, ef1;
     void Start()
     {
+        scoretxt.text = "Score : " + bodyconlist.Count + " / 15";
         InvokeRepeating("move", 3, 0.5f);
         if(MinigameManager.Instance.section > 1){
             GetComponent<SpriteRenderer>().sprite = headsnake;
@@ -55,8 +56,8 @@ public class snakeplayermov : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.tag == "snakefood"){
-            addbody();
             Destroy(collision.gameObject);
+            addbody();
         }
     }
 
@@ -68,11 +69,11 @@ public class snakeplayermov : MonoBehaviour
         int a = bodyconlist.Count;
         a--;
         snakebodycontroller b = bodyconlist[a].addbody();
+        bodyconlist.Add(b);
         scoretxt.text = "Score : " + bodyconlist.Count + " / 15";
         if(bodyconlist.Count >= 15){
             MinigameManager.Instance.TriggerGameWin();
         }
-        bodyconlist.Add(b);
         if(MinigameManager.Instance.section > 1){
             b.gameObject.GetComponent<SpriteRenderer>().sprite = body;
         }

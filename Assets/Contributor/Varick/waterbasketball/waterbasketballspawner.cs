@@ -14,7 +14,7 @@ public class waterbasketballspawner : MonoBehaviour
     void spawn(){
         for(int i = 0; i< 12; i++){
             GameObject a = Instantiate(ballobject, transform);
-            a.transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+            a.transform.position += new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
             a.GetComponent<SpriteRenderer>().sprite = ballsprites[Random.Range(0, ballsprites.Length)];
         }
     }
