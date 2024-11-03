@@ -6678,7 +6678,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shootSFX
       value: 
-      objectReference: {fileID: 8300000, guid: f0197df5a4abdb244b5d4a058cb2a475, type: 3}
+      objectReference: {fileID: 8300000, guid: 2f56f2cc4f64e5345941948a8b141b7e, type: 3}
     - target: {fileID: 6849908892135873696, guid: 12c0b46bedd020048ad75ea497b78796,
         type: 3}
       propertyPath: bulletPool
