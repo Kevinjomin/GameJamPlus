@@ -15,6 +15,8 @@ public class platformerplayermov : MonoBehaviour
 
     public Sprite flagsprite;
 
+    public AudioClip audijump;
+
     void FixedUpdate()
     {
         movX = Input.GetAxisRaw("Horizontal");
@@ -37,6 +39,7 @@ public class platformerplayermov : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, layerMask);
         if (hit)
         {
+            SoundManager.Instance.PlaySFXFromMonitor(audijump);
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
         }
     }
