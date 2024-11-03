@@ -6,6 +6,7 @@ public class breakoutcontroller : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed = 1;
+    public AudioClip audihit, audibreak;
 
     void Start(){
         Invoke("startwait", 3);
@@ -25,13 +26,18 @@ public class breakoutcontroller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "brickbreakout"){
+            SoundManager.Instance.PlaySFXFromMonitor(audibreak);
             Destroy(collision.gameObject);
+            return;
         }
 
         if(collision.gameObject.tag == "breakoutdead"){
             Debug.Log("lose");
             MinigameManager.Instance.TriggerGameLose();
             Destroy(gameObject);
+            return;
         }
+
+        SoundManager.Instance.PlaySFXFromMonitor(audihit);
     }
 }
