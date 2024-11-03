@@ -25,6 +25,10 @@ public class PM_EnemyChase : MonoBehaviour
 
         moveSpeed = agent.speed / 2f;
 
+        if (MinigameManager.Instance.section > 1){
+            canMoveThroughWall = true;
+        }
+
         if (canMoveThroughWall)
         {
             agent.enabled = false;
