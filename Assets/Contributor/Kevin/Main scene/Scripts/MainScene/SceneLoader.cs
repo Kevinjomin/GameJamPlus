@@ -23,4 +23,17 @@ public class SceneLoader : MonoBehaviour
         //Debug.Log($"Unloading scene {sceneName}");
         SceneManager.UnloadSceneAsync(sceneName);
     }
+
+    public bool IsSceneLoaded(string sceneName)
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name == sceneName && scene.isLoaded)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

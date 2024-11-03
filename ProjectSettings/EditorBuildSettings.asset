@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Contributor/Kevin/DinoChrome.unity
     guid: 1c69e056272fd844fa9df9351f0fd91b
+  - enabled: 1
+    path: Assets/Contributor/Kevin/SubSection.unity
+    guid: 9e47baae1e08a2147ae25610e5c79580
   m_configObjects: {}

@@ -8,6 +8,10 @@ public class MinigameManager : MonoBehaviour
     public static MinigameManager Instance;
 
     public int section = 1;
+    public GameObject sectionOneObject;
+    public GameObject sectionTwoObject;
+
+    public List<string> minigamesForSection1 = new List<string>();
 
     public List<Monitor> monitors = new List<Monitor>();
 
@@ -21,6 +25,9 @@ public class MinigameManager : MonoBehaviour
 
     public int totalLose;
 
+    [SerializeField] GameEvent onSectionOneEnd;
+    [SerializeField] GameEvent onSectionTwoStart;
+
     private void Awake()
     {
         Instance = this;
@@ -28,8 +35,14 @@ public class MinigameManager : MonoBehaviour
 
     private void Start()
     {
-        currentMonitor = null;
-        PickNewMonitor();
+        if(section == 1)
+        {
+            StartSectionOne();
+        }
+        else
+        {
+            StartSectionTwo();
+        }
     }
 
     private void Update()
@@ -42,6 +55,55 @@ public class MinigameManager : MonoBehaviour
                 TriggerGameWin();
             }
         }
+    }
+
+    #region First section
+    //these are codes for the first section
+    private void StartSectionOne()
+    {
+        section = 1;
+        sectionOneObject.SetActive(true);
+        sectionTwoObject.SetActive(false);
+
+        PickMonitorForSectionOne();
+    }
+
+    private void PickMonitorForSectionOne()
+    {
+        currentMonitor.TurnOff(screenOffMaterial);
+        currentMonitor.TurnOn(screenOnMaterial, minigamesForSection1[0]);
+    }
+
+    #endregion
+
+    #region Sub section
+    private void StartSubSection()
+    {
+        currentMonitor.TurnOff(screenOffMaterial);
+        currentMonitor.TurnOn(screenOnMaterial, "SubSection");
+    }
+
+    public void TriggerSectionTwo()
+    {
+        if(section < 2)
+        {
+            StartSectionTwo();
+        }
+        else
+        {
+            Debug.LogWarning("Invalid section number");
+        }
+    }
+    #endregion
+
+    private void StartSectionTwo()
+    {
+        section = 2;
+        sectionOneObject.SetActive(false);
+        sectionTwoObject.SetActive(true);
+
+        currentMonitor = null;
+        PickNewMonitor();
     }
 
     public void PickNewMonitor()
@@ -87,25 +149,47 @@ public class MinigameManager : MonoBehaviour
 
     public void TriggerGameWin()
     {
-        RemoveMonitorFromList(currentMonitor);
-        if(monitors.Count <= 0)
+        if(section > 1)
         {
-            Win();
+            RemoveMonitorFromList(currentMonitor);
+            if (monitors.Count <= 0)
+            {
+                Win();
+            }
+            else
+            {
+                PickNewMonitor();
+            }
         }
         else
         {
-            PickNewMonitor();
+            minigamesForSection1.Remove(minigamesForSection1[0]);
+            if(minigamesForSection1.Count <= 0)
+            {
+                StartSubSection();
+            }
+            else
+            {
+                PickMonitorForSectionOne();
+            }
         }
     }
 
     public void TriggerGameLose()
     {
-        totalLose++;
-        if(totalLose >= 10)
+        if (section > 1)
         {
-            Lose();
+            totalLose++;
+            if (totalLose >= 10)
+            {
+                Lose();
+            }
+            PickNewMonitor();
         }
-        PickNewMonitor();
+        else
+        {
+            PickMonitorForSectionOne();
+        }
     }
 
     private void Win()
