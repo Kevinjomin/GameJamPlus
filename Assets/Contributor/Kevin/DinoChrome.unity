@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  goal: 1000
+  goal: 600
   scoreText: {fileID: 1126438757}
 --- !u!1 &257541985
 GameObject:
@@ -836,8 +836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed7c0dbd82123a4096085af92dee176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialJumpStrength: 5
-  holdJumpStrength: 20
+  initialJumpStrength: 6
+  holdJumpStrength: 18
   holdJumpDuration: 0.3
   groundCheck: {fileID: 566460116}
   groundCheckRadius: 0.2
@@ -1003,8 +1003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 0}
-  m_SizeDelta: {x: 90, y: 0}
+  m_AnchoredPosition: {x: -309.8, y: 0}
+  m_SizeDelta: {x: 600, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126438757
 MonoBehaviour:
