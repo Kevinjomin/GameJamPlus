@@ -103,7 +103,7 @@ public class MinigameManager : MonoBehaviour
         sectionTwoObject.SetActive(true);
 
         currentMonitor = null;
-        PickNewMonitor();
+        Invoke("PickNewMonitor", 3f);
     }
 
     public void PickNewMonitor()

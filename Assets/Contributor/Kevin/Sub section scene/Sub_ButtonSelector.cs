@@ -8,7 +8,7 @@ public class Sub_ButtonSelector : MonoBehaviour
     public Sub_CustomButton currentButton; // Currently selected button
 
     [SerializeField] private List<Sub_CustomButton> buttons = new List<Sub_CustomButton>();
-    GameEvent onSectionTwoStart;
+    public GameEvent onSectionTwoStart;
 
     void Start()
     {

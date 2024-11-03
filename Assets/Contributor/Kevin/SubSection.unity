@@ -1059,6 +1059,7 @@ MonoBehaviour:
   initialButton: {fileID: 0}
   currentButton: {fileID: 0}
   buttons: []
+  onSectionTwoStart: {fileID: 0}
 --- !u!114 &1485947150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,6 +1202,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1898275824}
   - {fileID: 363702202}
+  onSectionTwoStart: {fileID: 11400000, guid: 569b79f8a09a1fa4c9f06a04bb160050, type: 2}
 --- !u!1 &1587946285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1257,7 @@ MonoBehaviour:
   initialButton: {fileID: 0}
   currentButton: {fileID: 0}
   buttons: []
+  onSectionTwoStart: {fileID: 0}
 --- !u!114 &1587946288
 MonoBehaviour:
   m_ObjectHideFlags: 0
