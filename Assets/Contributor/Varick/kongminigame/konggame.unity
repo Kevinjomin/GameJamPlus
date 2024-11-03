@@ -2873,6 +2873,7 @@ MonoBehaviour:
   anim: {fileID: 24709030}
   spritetransform: {fileID: 24709029}
   kongjumpscare: {fileID: 532352673}
+  audijump: {fileID: 8300000, guid: 966e9e4f7815e0d46ab4b917e01a88e8, type: 3}
 --- !u!4 &1882012846
 Transform:
   m_ObjectHideFlags: 0
