@@ -596,6 +596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 354894872}
   speed: 5
+  audihit: {fileID: 8300000, guid: eff709b8749c0ee448f8f323e59e1682, type: 3}
+  audibreak: {fileID: 8300000, guid: 18e82e0eff90bee4c8c8c8a20a5ab75e, type: 3}
 --- !u!58 &354894871
 CircleCollider2D:
   m_ObjectHideFlags: 0

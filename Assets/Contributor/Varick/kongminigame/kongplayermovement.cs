@@ -15,6 +15,8 @@ public class kongplayermovement : MonoBehaviour
 
     public GameObject kongjumpscare;
 
+    public AudioClip audijump;
+
     void Start(){
         //StartCoroutine(waitwin());
     }
@@ -37,6 +39,7 @@ public class kongplayermovement : MonoBehaviour
             
             if(Input.GetButton("Jump") && grounded){
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                SoundManager.Instance.PlaySFXFromMonitor(audijump);
             }   
         }else{
             rb.velocity = new Vector2(0,0);
