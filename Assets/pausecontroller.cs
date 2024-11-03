@@ -32,15 +32,17 @@ public class pausecontroller : MonoBehaviour
         if(childobject.activeSelf){
             childobject.SetActive(false);
             Time.timeScale = 1;
+            Scene scene = SceneManager.GetActiveScene();
             Cursor.lockState = CursorLockMode.None;
+            if(scene.name == "MainScene"){
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
             return;
         }else{
             childobject.SetActive(true);
             Time.timeScale = 0;
-            Scene scene = SceneManager.GetActiveScene();
-            if(scene.name == "MainScene"){
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            Cursor.visible = true;
         }
     }
 }

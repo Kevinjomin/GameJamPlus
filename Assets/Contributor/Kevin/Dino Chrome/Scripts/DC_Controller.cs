@@ -14,7 +14,7 @@ public class DC_Controller : MonoBehaviour
     private float jumpHoldTime = 0f;
 
     [SerializeField] Transform groundCheck;
-    [SerializeField] float groundCheckRadius = 0.1f;
+    [SerializeField] float groundCheckRadius = 0.2f;
 
     public LayerMask groundLayerMask;
     public AudioClip dinojump;

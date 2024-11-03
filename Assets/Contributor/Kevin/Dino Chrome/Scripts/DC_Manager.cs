@@ -24,7 +24,7 @@ public class DC_Manager : MonoBehaviour
 
     private void InitializeUI()
     {
-        scoreText.text = $"{score.ToString()}";
+        scoreText.text = $"{score.ToString()} / 600";
     }
 
     private IEnumerator AddScoreAtIntervals()
@@ -48,6 +48,6 @@ public class DC_Manager : MonoBehaviour
 
     public void UpdateUI()
     {
-        scoreText.text = $"{score:D4}";
+        scoreText.text = $"{score:D4}  / 600";
     }
 }
