@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Contributor/Kevin/FlappyBirdTemp.unity
     guid: bb4467906857a674ba59c39c61048a8c
+  - enabled: 1
+    path: Assets/Contributor/Kevin/Pacman.unity
+    guid: 979d143de99563440ab04ed53fc58735
+  - enabled: 1
+    path: Assets/Contributor/Varick/waterbasketball/waterbasketball.unity
+    guid: c5f68a59ee1d96548bc01562f92b8d9a
+  - enabled: 1
+    path: Assets/Contributor/Kevin/DinoChrome.unity
+    guid: 1c69e056272fd844fa9df9351f0fd91b
   m_configObjects: {}

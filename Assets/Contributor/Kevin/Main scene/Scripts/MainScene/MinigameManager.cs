@@ -32,6 +32,18 @@ public class MinigameManager : MonoBehaviour
         PickNewMonitor();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Application.isEditor)
+            {
+                Debug.Log("Game win triggered! (editor only)");
+                TriggerGameWin();
+            }
+        }
+    }
+
     public void PickNewMonitor()
     {
         if (currentMonitor != null) currentMonitor.TurnOff(screenOffMaterial);
