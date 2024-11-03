@@ -56,7 +56,7 @@ public class kongplayermovement : MonoBehaviour
     }
 
     void jump(){
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         SoundManager.Instance.PlaySFXFromMonitor(audijump);
     }
 
