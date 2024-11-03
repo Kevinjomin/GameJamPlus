@@ -11,7 +11,7 @@ public class MinigameManager : MonoBehaviour
 
     public List<Monitor> monitors = new List<Monitor>();
 
-    private Monitor currentMonitor;
+    public Monitor currentMonitor;
     private int currentMonitorIndex;
 
     public Material screenOnMaterial;
