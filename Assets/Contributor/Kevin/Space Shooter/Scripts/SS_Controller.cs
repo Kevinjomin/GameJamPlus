@@ -14,6 +14,8 @@ public class SS_Controller : MonoBehaviour
     public float shootCooldown = 0.5f;
     public float currentCooldown;
 
+    public AudioClip shootSFX;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,6 +46,8 @@ public class SS_Controller : MonoBehaviour
         var bullet = bulletPool.TakeBulletFromPool();
         bullet.InitializeBullet(bulletPool, shootPosition, bulletSpeed);
         currentCooldown = shootCooldown;
+
+        SoundManager.Instance.PlaySFXFromMonitor(shootSFX);
     }
     private void CheckCooldown()
     {

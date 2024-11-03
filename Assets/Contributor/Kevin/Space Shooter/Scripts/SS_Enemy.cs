@@ -17,6 +17,8 @@ public class SS_Enemy : MonoBehaviour
     public float shootCooldown = 3f;
     public float currentCooldown;
 
+    public AudioClip deathSFX;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +50,7 @@ public class SS_Enemy : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.PlaySFXFromMonitor(deathSFX);
         SS_Manager.Instance.AddScore(1);
         Destroy(gameObject);
     }
