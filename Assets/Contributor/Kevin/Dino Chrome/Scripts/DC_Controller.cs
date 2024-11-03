@@ -17,6 +17,7 @@ public class DC_Controller : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0.1f;
 
     public LayerMask groundLayerMask;
+    public AudioClip dinojump;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class DC_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && CheckGrounded())
         {
+            SoundManager.Instance.PlaySFXFromMonitor(dinojump);
             Jump();
             isJumping = true;
             jumpHoldTime = 0f;

@@ -12,10 +12,12 @@ public class waterbasketballcontroller : MonoBehaviour
     public KeyCode action;
 
     public float power;
+    public AudioClip clip;
 
     void Update()
     {
         if(Input.GetKeyDown(action) && can){
+            SoundManager.Instance.PlaySFXFromMonitor(clip);
             StartCoroutine(cooldown());
         }
     }

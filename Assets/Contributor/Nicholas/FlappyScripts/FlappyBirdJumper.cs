@@ -7,17 +7,33 @@ public class FlappyBirdJumper : MonoBehaviour
     private float rotationSpeed = 7f;
     [SerializeField] private float jumpForce = 4f;
     private Rigidbody2D rb2d;
+    private bool gameStarted = false;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        StartCoroutine(StartGameDelay());
     }
+
+    IEnumerator StartGameDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        gameStarted = true;
+    }
+    
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(gameStarted)
         {
-            rb2d.velocity = Vector2.up * jumpForce;
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                rb2d.velocity = Vector2.up * jumpForce;
+            }
+        }
+        else
+        {
+            rb2d.velocity = Vector2.zero;
         }
     }
 
