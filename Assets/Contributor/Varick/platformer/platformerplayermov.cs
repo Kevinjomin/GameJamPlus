@@ -39,8 +39,8 @@ public class platformerplayermov : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, layerMask);
         if (hit)
         {
-            SoundManager.Instance.PlaySFXFromMonitor(audijump);
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+            SoundManager.Instance.PlaySFXFromMonitor(audijump);
         }
     }
 
@@ -52,6 +52,10 @@ public class platformerplayermov : MonoBehaviour
 
         if(collision.gameObject.name == "coin"){
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.name == "deathzone"){
+            die();
         }
     }
 
@@ -73,10 +77,6 @@ public class platformerplayermov : MonoBehaviour
 
     void OnCollisonEnter2D(Collision2D collision){
         if(collision.gameObject.name == "enemy"){
-            die();
-        }
-
-        if(collision.gameObject.name == "deathzone"){
             die();
         }
     }
